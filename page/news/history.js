@@ -19,14 +19,14 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'newsId', title: 'ID', width:60, align:"center"},
-            {field: 'newsName', title: '文章标题', width:350},
-            {field: 'newsAuthor', title: '发布者', align:'center'},
-            {field: 'newsStatus', title: '发布状态',  align:'center',templet:"#newsStatus"},
-            {field: 'newsLook', title: '浏览权限', align:'center'},
-            {field: 'newsTop', title: '是否置顶', align:'center', templet:function(d){
+            {field: 'newsName', title: '用户ID', width:350},
+            {field: 'newsAuthor', title: '姓名', align:'center'},
+            {field: 'newsStatus', title: '试卷名称',  align:'center',templet:"#newsStatus"},
+            {field: 'newsLook', title: '分数', align:'center'},
+            /*{field: 'newsTop', title: '是否置顶', align:'center', templet:function(d){
                 return '<input type="checkbox" name="newsTop" lay-filter="newsTop" lay-skin="switch" lay-text="是|否" '+d.newsTop+'>'
-            }},
-            {field: 'newsTime', title: '发布时间', align:'center', minWidth:110, templet:function(d){
+            }},*/
+            {field: 'newsTime', title: '考试时间', align:'center', minWidth:110, templet:function(d){
                 return d.newsTime.substring(0,10);
             }},
             {title: '操作', width:170, templet:'#newsListBar',fixed:"right",align:"center"}
@@ -136,7 +136,16 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
                 // })
             });
         } else if(layEvent === 'look'){ //预览
-            layer.alert("此功能需要前台展示，实际开发中传入对应的必要参数进行文章内容页面访问")
+        layer.open({
+        area: ['60%', '40%'],	
+        title:"考试结果",
+        content:
+		    '<div class="layui-btn-container">'+
+			  '<button type="button" class="layui-btn">A</button> '+
+			  '<button type="button" class="layui-btn layui-btn-danger">D</button> '+
+			  '<button type="button" class="layui-btn">C</button> '+
+			  '<button type="button" class="layui-btn layui-btn-danger">B</button> '+
+			'</div>'})
         }
     });
 
