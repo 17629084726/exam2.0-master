@@ -118,7 +118,7 @@
 	
 	<script>
 		
-		var nowPage=1;
+		var nowPage=0;
 		var sumPage=2;
 		var hour=0;//时
 		var minute=0;// 分
@@ -127,7 +127,7 @@
 		
 		window.onload=function (){
 			
-			show_page(nowPage-1);
+			show_page(nowPage);
 			
 			var mytimeHtml=document.getElementById("mytime").innerHTML;
 			
@@ -154,7 +154,7 @@
 		
 		function previous_Btn(){
 			
-			if(nowPage <= 1){
+			if(nowPage <= 0){
 				layer.msg("已经是第一题");
 				return;
 			}
@@ -165,12 +165,12 @@
 		
 		function next_Btn(){
 			
-			if(nowPage >= sumPage){
+			if(nowPage >= sumPage-1){
 				layer.msg("已经是第最后一题");
 				return;
 			}
 			
-			show_page(nowPage-1);
+			show_page(nowPage+1);
 			nowPage++;
 		}
 		
