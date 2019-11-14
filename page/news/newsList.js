@@ -19,7 +19,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'newsId', title: 'ID', width:60, align:"center"},
-            {field: 'newsName', title: '文章标题', width:350},
+            {field: 'newsName', title: '试题名称', width:350},
             {field: 'newsAuthor', title: '发布者', align:'center'},
             {field: 'newsStatus', title: '发布状态',  align:'center',templet:"#newsStatus"},
             {field: 'newsLook', title: '浏览权限', align:'center'},
@@ -65,7 +65,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
     //添加文章
     function addNews(edit){
         var index = layui.layer.open({
-            title : "添加文章",
+            title : "添加试题",
             type : 2,
             content : "examAdd.html",
             success : function(layero, index){
@@ -81,7 +81,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
                     form.render();
                 }
                 setTimeout(function(){
-                    layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
+                    layui.layer.tips('点击此处返回试题列表', '.layui-layer-setwin .layui-layer-close', {
                         tips: 3
                     });
                 },500)
