@@ -10,8 +10,19 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
     //用于同步编辑器内容到textarea
     layedit.sync(editIndex);
 
+	 //拖拽上传
+	  upload.render({
+	    elem: '#test10'
+	    ,url: '/upload/'
+	    ,exts: 'xls|xlsx' //只允许上传Excel文件
+	    ,done: function(res){
+	      console.log(res)
+	    }
+	  });
+
+
     //上传缩略图
-    upload.render({
+    /*upload.render({
         elem: '.thumbBox',
         url: '../../json/userface.json',
         method : "get",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
@@ -20,7 +31,7 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
             $('.thumbImg').attr('src',res.data[num].src);
             $('.thumbBox').css("background","#fff");
         }
-    });
+    });*/
 
     //格式化时间
     function filterTime(val){
